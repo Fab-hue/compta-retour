@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Retour vers la compta</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1rem; color: #222; }
+  a.bouton { display: inline-block; padding: .7rem 1.2rem; background: #1f5134; color: #fff; border-radius: 6px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>Retour vers l'application de comptabilité</h1>
+<p>Cette page renvoie l'autorisation bancaire vers l'application locale (http://127.0.0.1:3001). Elle ne stocke rien.</p>
+<p><a class="bouton" id="continuer" href="#">Continuer</a></p>
+<script>
+  // Seul le paramètre de requête est transmis ; la destination est fixe.
+  var cible = 'http://127.0.0.1:3001/api/banque/enable-banking/callback' + window.location.search;
+  document.getElementById('continuer').href = cible;
+  window.location.replace(cible);
+</script>
+</body>
+</html>
